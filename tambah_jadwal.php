@@ -43,10 +43,11 @@
                                     $_SESSION['sifat'] = 'Form Jam hanya boleh mengandung karakter angka, huruf dan spasi atau yang dipilih';
                                     echo '<script language="javascript">window.history.back();</script>';
                                 } else {
-
-                                    $query = mysqli_query($config, "INSERT INTO tbl_disposisi(isi_disposisi,sifat,batas_waktu,id_surat,id_user)
-                                        VALUES('$isi_disposisi','$sifat','$batas_waktu','$id_surat','$id_user')");
-
+                                    $query = mysqli_query($config, "INSERT INTO tbl_konseling(nama)
+                                    VALUES('-')");
+                                    $last_id = mysqli_insert_id($config);
+                                    $query = mysqli_query($config, "INSERT INTO tbl_disposisi(isi_disposisi,sifat,batas_waktu,id_surat,id_user,id_konseling,status_konseling)
+                                        VALUES('$isi_disposisi','$sifat','$batas_waktu','$id_surat','$id_user','$last_id','PROSES')");
                                     if($query == true){
                                         $_SESSION['succAdd'] = 'SUKSES! Data Jadwal berhasil ditambahkan';
                                         echo '<script language="javascript">

@@ -190,6 +190,15 @@
                 case 'add_s':
                     include "tambah_scrining.php";
                     break;
+                case 'updt':
+                    include "update_ter.php";
+                    break;
+                case 'upds':
+                        include "update_sir.php";
+                        break;
+                case 'add_s':
+                     include "tambah_scrining.php";
+                     break;
                 case 'edit_s':
                     include "edit_scrining.php";
                     break;
@@ -340,6 +349,10 @@
                                     <div class="card-content col s3">
                                     <a class="btn small blue lighten-5 tooltipped black-text"data-position="left" data-tooltip="Kolola Wali Klien" href="?page=tsm&act=wp&id_surat='.$row['id_surat'].'">
                                                     <i class="material-icons">person_pin</i> Wali</a>
+                                                    <a class="btn small blue lighten-5 tooltipped black-text" href="?page=tsm&act=update_sir&id_surat='.$row['id_surat'].'">
+                                                    <i class="material-icons">person_pin</i> Sirena</a>
+                                                    <a class="btn small blue lighten-5 tooltipped black-text" href="?page=tsm&act=update_ter&id_surat='.$row['id_surat'].'">
+                                                    <i class="material-icons">person_pin</i> Terminasi</a>
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +410,7 @@
                             <ul class="tabs tabs-fixed-width">
                                 <li class="tab"><a href="#tombol1">Scrining Zat</a></li>
                                 <li class="tab"><a class="active" href="#tombol2">Formulir Assesmen</a></li>
-                                <li class="tab"><a href="#tombol3"> Konseling 1 - 8</a></li>
+                                <li class="tab"><a href="#tombol5"> Konseling 1 - 8</a></li>
                                 <li class="tab"><a href="#tombol4"> Konseling Keluarga & Kelompok</a></li>
                             </ul>
                         </div>
@@ -853,52 +866,15 @@
                             <div class="col m12">
                                 <div class="card blue lighten-4">
                                     <table class="bordered" id="tbl">
-                                        <thead class="blue lighten-4" id="head">
-                                            <tr><center>
-                                                <div class="form blue lighten-4 black-text"><i class="material-icons md-36">filter_3</i> Data Hasil Konseling Pertemuan 1 - 8<i class="material-icons md-36 right">call_received</i>
-                                                </div></center></tr>
-                                            <tr>
-                                                <th width="5%"><center>Pertemuan Ke</center></th>
-                                                <th width="15%">Waktu<br/>Tanggal</th>
-                                                <th width="30%">Keterangan</th>
-                                                <th width="16%">Status Konseling</th>
-                                                <th width="34%">Tindakan</th>
-                                            </tr>
-                                        </thead>
+                                      
                                         <tbody>';
 
-                                        $query4 = mysqli_query($config, "SELECT * FROM tbl_disposisi JOIN tbl_surat_masuk ON tbl_disposisi.id_surat = tbl_surat_masuk.id_surat WHERE tbl_disposisi.id_surat='$id_surat'");
-
-                                        if(mysqli_num_rows($query4) > 0){
-                                            $no = 0;
-                                            while($row = mysqli_fetch_array($query4)){
-                                            $no++;
-                                             echo '
-                                                <tr>
-                                                    <td><center>'.$no.'</center></td>
-                                                    <td>'.$row['sifat'].'<br/>'.indoDate($row['batas_waktu']).'</td>
-                                                    <td>'.$row['isi_disposisi'].'</td>
-                                                    <td>Yes/No</td>
-
-                                                    <td>
-                                                        <a class="btn small blue lighten-3 waves-light black-text" href="?page=tsm&act=disp&id_surat='.$id_surat.'&sub=ass&id_disposisi='.$row['id_disposisi'].'"><i class="material-icons">record_voice_over</i> Konseling</a>
-                                                        <a class="btn small deep-orange waves-light" href="?page=tsm&act=disp&id_surat='.$id_surat.'&sub=edit&id_disposisi='.$row['id_disposisi'].'">
-                                                            <i class="material-icons">edit</i> EDIT</a>
-                                                        <a class="btn small deep-orange waves-light" href="?page=tsm&act=disp&id_surat='.$id_surat.'&sub=del&id_disposisi='.$row['id_disposisi'].'"><i class="material-icons">delete</i> DEL</a>
-                                                    </td>
-                                            </tr>';
-                                            }
-                                        } else {
-                                            echo '<tr><td colspan="5"><center><p class="add">Tidak ada data Waktu Janjian & Konseling untuk ditampilkan. <br><u><a class="btn small blue waves-effect waves-light white-text" href="?page=tsm&act=disp&id_surat='.$row['id_surat'].'&sub=add">Buat Jadwal baru</a></u></p></center></td></tr>';
-                                           
-                                        }
+                                       
                                 echo '</tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class"form">
-                            <a class="btn small blue lighten-4 waves-effect waves-light black-text" href="?page=tsm&act=disp&id_surat='.$id_surat.'&sub=add"><i class="material-icons">edit</i>Tambah Jadwal Konseling</a>
-                            </div>
+                      
                             </div>
                         </div>
 
@@ -1027,9 +1003,12 @@
 
                         ';
 
+
+
+
 echo'
 <div class="card-content grey lighten-4">
-<div id="tombol1">Scrining Jenis Zat Yang Digunakan
+<div id="tombol5">Scrining Jenis Zat Yang Digunakan
     <div class="center">
         <div class="accent">
         <br/>
@@ -1037,10 +1016,68 @@ echo'
 <div class="row jarak-card">
 <div class="col m12">
 <div class="card">
-    <div class="card-content">
-        <table>
-          HALAMAN TAMPIL DATA
-</table>
+<div class="card-content">
+<!-- Row form Start -->
+<div class="row jarak-card">
+    <div class="col m12">
+        <div class="card blue lighten-4">
+            <table class="bordered" id="tbl">
+                <thead class="blue lighten-4" id="head">
+                    <tr><center>
+                        <div class="form blue lighten-4 black-text"><i class="material-icons md-36">filter_3</i> Data Hasil Konseling Pertemuan 1 - 8<i class="material-icons md-36 right">call_received</i>
+                        </div></center></tr>
+                    <tr>
+                        <th width="5%"><center>Pertemuan Ke</center></th>
+                        <th width="15%">Waktu<br/>Tanggal</th>
+                        <th width="30%">Keterangan</th>
+                        <th width="16%">Status Konseling</th>
+                        <th width="34%">Tindakan</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+                $query4 = mysqli_query($config, "SELECT * FROM tbl_disposisi JOIN tbl_surat_masuk ON tbl_disposisi.id_surat = tbl_surat_masuk.id_surat WHERE tbl_disposisi.id_surat='$id_surat'");
+
+                if(mysqli_num_rows($query4) > 0){
+                    $no = 0;
+                    while($row = mysqli_fetch_array($query4)){
+                    $no++;
+                     echo '
+                        <tr>
+                            <td><center>'.$no.'</center></td>
+                            <td>'.$row['sifat'].'<br/>'.indoDate($row['batas_waktu']).'</td>
+                            <td>'.$row['isi_disposisi'].'</td>
+                            <td>'.$row['status_konseling'].'</td>
+
+                            <td>
+                                <a class="btn small blue lighten-3 waves-light black-text" href="?page=tsm&act=viewk&id_disposisi='.$row['id_disposisi'].'"><i class="material-icons">record_voice_over</i> Konseling</a>
+                                    <i class="material-icons">edit</i> EDIT</a>
+                                <a class="btn small deep-orange waves-light" href="?page=tsm&act=disp&id_surat='.$id_surat.'&sub=del&id_disposisi='.$row['id_disposisi'].'"><i class="material-icons">delete</i> DEL</a>
+                            </td>
+                    </tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="5"><center><p class="add">Tidak ada data Waktu Janjian & Konseling untuk ditampilkan. <br><u><a class="btn small blue waves-effect waves-light white-text" href="?page=tsm&act=disp&id_surat='.$row['id_surat'].'&sub=add">Buat Jadwal baru</a></u></p></center></td></tr>';
+                   
+                }
+        echo '</tbody>
+            </table>
+        </div>
+    </div>
+    <div class"form">
+    <a class="btn small blue lighten-4 waves-effect waves-light black-text" href="?page=tsm&act=disp&id_surat='.$id_surat.'&sub=add"><i class="material-icons">edit</i>Tambah Jadwal Konseling</a>
+    </div>
+    </div>
+</div>
+
+    <!-- Row form END -->
+                </center>
+            <br/>
+            </div>   
+        </div>
+    </div>
+
+
 </div>
     
 </div>

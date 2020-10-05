@@ -19,6 +19,12 @@
                     case 'add':
                         include "tambah_Klien.php";
                         break;
+                    case 'vnz':
+                        include "act_usr.php";
+                        break;
+                    case 'auzs':
+                        include "act_auzs.php";
+                        break;
                     case 'add_wal':
                         include "tambah_waliKlien.php";
                         break;
@@ -27,6 +33,9 @@
                         break;
                     case 'update_sir':
                         include "update_sir.php";
+                        break;
+                    case 'viewk':
+                        include "viewk.php";
                         break;
                     case 'update_ter':
                         include "update_ter.php";
@@ -39,6 +48,9 @@
                         break;
                     case 'wp':
                         include "wali_Klien.php";
+                        break;
+                    case 'updta':
+                        include "update_usr.php";
                         break;
                     case 'ass':
                         include "assesmen.php";
