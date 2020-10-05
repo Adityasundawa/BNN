@@ -73,7 +73,105 @@
                                 </div>
                                 <!-- Secondary Nav END -->
                             </div>
-                            <!-- Row END -->';
+                            <!-- Row END -->
+                            
+                            
+                            <div class="row">
+                            <form class="col s12"method="post"action="?page=tsm&act=kons">
+                                <div class="row">
+                                    <div class="input-field col s8">
+                                        <input  id="first_name" type="text" class="validate"name="nama"required>
+                                        <label for="first_name">Nama</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <select id="selectbox1"class="validate"name="jenis_kelamin"required>
+                                        <option value="" disabled selected>Jenis Kelamin</option>
+                                        <option value="laki-laki">Laki Laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
+                                    <label for="selectbox1"></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input  id="first_name" type="text" class="validate"name="pndkn_akhir"required>
+                                        <label for="first_name">pendidikan akhir</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                    <input  id="first_name" type="text" class="datepicker"name="tgl_lahir"required>
+                                    <label for="first_name">tanggal Lahir</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input  id="first_name" type="text" class="validate"name="alamat"required>
+                                        <label for="first_name">Alamat</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                    <input  id="first_name" type="number" class="validate"name="no_telp"required>
+                                    <label for="first_name">No Telepon</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input  id="first_name" type="text" class="validate"name="agama"required>
+                                        <label for="first_name">Agama</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                    <input  id="first_name" type="number" class="validate"name="usia"required>
+                                    <label for="first_name">Usia</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                    <textarea  class="materialize-textarea" id="first_name"name="konseling"required></textarea>
+                                        <label for="first_name">Pemeriksaan konseling</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                    <textarea  class="materialize-textarea" id="first_name"name="rencana_terapi"required></textarea>
+                                    <label for="first_name">rencana terapi</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="input-field col s12">
+                                <textarea  class="materialize-textarea" id="first_name"name="tinjau_kesejahteraan"required></textarea>
+                                    <label for="first_name">Tinjau Kesejahteraan</label>
+                                </div>
+                                <div class="row">
+                                <div class="input-field col s6">
+                                <textarea  class="materialize-textarea" id="first_name"name="gambaran_fisik"required></textarea>
+                                    <label for="first_name">Gambaran Fisik dan penampilan</label>
+                                </div>
+                                <div class="input-field col s6">
+                                <textarea  class="materialize-textarea" id="first_name"name="gambaran_perilaku"required></textarea>
+                                <label for="first_name">Gambaran Perilaku</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="input-field col s6">
+                            <textarea  class="materialize-textarea" id="first_name"name="gambaran_kognitif"required></textarea>
+                                <label for="first_name">Gambaran Kognitif</label>
+                            </div>
+                            <div class="input-field col s6">
+                            <textarea  class="materialize-textarea" id="first_name"name="gambaran_emosi"required></textarea>
+                            <label for="first_name">Gambaran Emosi</label>
+                            </div>
+                            <div class="input-field col s12">
+                            <textarea  class="materialize-textarea" id="first_name"name="diagnosa"required></textarea>
+                            <label for="first_name">Diagnosa</label>
+                            </div>
+                            </div>
+                            </div>
+                            <input type="hidden" value="'.$id_disposisi.'"name="id_disposisi">
+                            <input type="hidden" value="'.$_REQUEST['id_surat'].'"name="id_surat">
+                            
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                            </div>
+                            
+                            ';
 
                             if(isset($_SESSION['succAdd'])){
                                 $succAdd = $_SESSION['succAdd'];

@@ -34,6 +34,9 @@
                     case 'disp':
                         include "penjadwalan.php";
                         break;
+                    case 'kons':
+                        include "tambah_konseling.php";
+                        break;
                     case 'wp':
                         include "wali_Klien.php";
                         break;
