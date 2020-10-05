@@ -908,6 +908,10 @@
                                     </div>   
                                 </div>
                             </div>
+
+
+
+
                             <div id="tombol4">
                                 <div class="center">
                                     <div class="accent">
@@ -1011,15 +1015,39 @@
                                 </div>
                             </div>
                             <!-- Row form END -->
+
+
+
                                         </center>
                                     <br/>
                                     </div>   
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>';
+
+
+                        ';
+
+echo'
+<div class="card-content grey lighten-4">
+<div id="tombol1">Scrining Jenis Zat Yang Digunakan
+    <div class="center">
+        <div class="accent">
+        <br/>
+            <!-- Row form Start -->
+<div class="row jarak-card">
+<div class="col m12">
+<div class="card">
+    <div class="card-content">
+        <table>
+          HALAMAN TAMPIL DATA
+</table>
+</div>
+    
+</div>
+</div>
+</div>
+</div>';
+            
                     }
                 }
            }

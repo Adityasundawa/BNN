@@ -30,6 +30,7 @@
             } else {
 
                 $no_agenda = $_REQUEST['no_agenda'];
+                $status = "On Process";
                 $nama = $_REQUEST['nama'];
                 $tempat_lahir = $_REQUEST['tempat_lahir'];
                 $jenis_kelamin = $_REQUEST['jenis_kelamin'];
@@ -156,8 +157,8 @@
                                                                 move_uploaded_file($_FILES['file']['tmp_name'], $target_dir.$nfile);
 
                                                                 $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,nama,tempat_lahir,jenis_kelamin,agama,status_perkawinan,pekerjaan,kewarganegaraan,isi,kode,indeks,tgl_surat,
-                                                                    tgl_diterima,file,keterangan,id_user, klinik)
-                                                                        VALUES('$no_agenda','$no_surat','$asal_surat','$nama','$tempat_lahir','$jenis_kelamin','$agama','$status_perkawinan','$pekerjaan','$kewarganegaraan','$isi','$nkode','$indeks','$tgl_surat',NOW(),'$nfile','$keterangan','$id_user', $klinik)");
+                                                                    tgl_diterima,file,keterangan,id_user, klinik,status)
+                                                                        VALUES('$no_agenda','$no_surat','$asal_surat','$nama','$tempat_lahir','$jenis_kelamin','$agama','$status_perkawinan','$pekerjaan','$kewarganegaraan','$isi','$nkode','$indeks','$tgl_surat',NOW(),'$nfile','$keterangan','$id_user', '$klinik', 'on Process')");
 
                                                                 //UPDATE FAJAR
                                                                 $qry = mysqli_query($config, "INSERT INTO tbl_user(username,password,nama,nip,admin)

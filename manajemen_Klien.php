@@ -25,6 +25,12 @@
                     case 'edit':
                         include "edit_Klien.php";
                         break;
+                    case 'update_sir':
+                        include "update_sir.php";
+                        break;
+                    case 'update_ter':
+                        include "update_ter.php";
+                        break;
                     case 'disp':
                         include "penjadwalan.php";
                         break;
@@ -432,7 +438,7 @@
                                         
 
                                         <td>'.indoDate($row['tgl_surat']).'</td>
-                                        <td>status ada 3</td>
+                                        <td>'.$row['status'].'</td>
                                         <td>';
                                         
                                         if($_SESSION['admin'] == 1 || $_SESSION['admin'] == 2){
