@@ -43,8 +43,16 @@
                                     $_SESSION['sifat'] = 'Form Jam hanya boleh mengandung karakter angka, huruf dan spasi atau yang dipilih';
                                     echo '<script language="javascript">window.history.back();</script>';
                                 } else {
-                                    $query = mysqli_query($config, "INSERT INTO tbl_konseling(nama)
-                                    VALUES('-')");
+                                        $querc = mysqli_query($config, "SELECT * FROM tbl_surat_masuk WHERE id_surat='$id_surat'");
+                                    
+
+                                    while($data = mysqli_fetch_array($querc)){
+
+                                    // $query = mysqli_query($config, "INSERT INTO tbl_konseling(nama,jenis_kelamin,agama)VALUES('".$data['nama']."',".$data['jenis_kelamin'].",".$data['agama'].")");
+
+
+                                    $query = mysqli_query($config, "INSERT INTO tbl_konseling(nama,jenis_kelamin,agama)VALUES('".$data['nama']."','".$data['jenis_kelamin']."','".$data['agama']."')");
+                                    }
                                     $last_id = mysqli_insert_id($config);
                                     $query = mysqli_query($config, "INSERT INTO tbl_disposisi(isi_disposisi,sifat,batas_waktu,id_surat,id_user,id_konseling,status_konseling)
                                         VALUES('$isi_disposisi','$sifat','$batas_waktu','$id_surat','$id_user','$last_id','PROSES')");

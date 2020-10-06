@@ -389,15 +389,19 @@
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix md-prefix">assistant_photo</i>
-                            <input id="kewarganegaraan" type="text" class="validate" name="kewarganegaraan" required>
-                                <?php
-                                    if(isset($_SESSION['kewarganegaraan'])){
-                                        $kewarganegaraan = $_SESSION['kewarganegaraan'];
-                                        echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$kewarganegaraan.'</div>';
-                                        unset($_SESSION['kewarganegaraan']);
-                                    }
-                                ?>
-                            <label for="kewarganegaraan">Kewarganegaraan</label>
+                            <div class="input-field col s11 right">
+                                <select class=" validate" name="kewarganegaraan" id="keterangan" required>
+                                    <option value="TK">TK</option>
+                                    <option value="SD">SD</option>
+                                    <option value="SMP">SMP</option>
+                                    <option value="SMA/SMK">SMA/SMK</option>
+                                    <option value="D3">D3</option>
+                                    <option value="S2">S2</option>
+                                    <option value="S3">S3</option>
+                                    <option value="Lain-lain">Lain-lain</option>
+                                </select>
+                            </div>
+                            <label for="kewarganegaraan">Pendidikan Terakhir</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix md-prefix">looks_one</i>

@@ -31,7 +31,7 @@ while($user_c = mysqli_fetch_array($data))
            <div class="confir blue-text"><i class="material-icons md-36">filter_2</i>
            Data KONSELING Wajib Lapor<i class="material-icons md-36 right">call_received</i></div>
        </thead>
-       <a class="btn small deep-orange waves-light" href="?page=tsm&act=updta&id='.$user_c['id'].'"><i class="material-icons">add</i>Tambahkan User</a>
+       <a class="btn small deep-orange waves-light" href="?page=tsm&act=updta&id_disposisi='.$id_disposisi.'&id='.$user_c['id'].'"><i class="material-icons">add</i>Tambahkan User</a>
        <a class="btn small deep-green waves-light" href="?page=tsm&act=auzs&id_disposisi='.$id_disposisi.'"><i class="material-icons">add</i>SELESAI</a>
    
    
